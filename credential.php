@@ -1,3 +1,3 @@
 <?php
-    $db_conn = OCILogon("ora_hxu26", "a21000187", "dbhost.students.cs.ubc.ca:1522/stu");
+    $db_conn = OCILogon("system", "Xhy197597.", "1.12.237.192:1539/XE");
 ?>
