@@ -51,5 +51,5 @@ password:Xhy197597.
 service name:XE
 
 ## View Application
-http://43.139.207.11/index.php
+http://43.139.207.11/login.php
 
