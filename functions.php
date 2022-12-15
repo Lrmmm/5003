@@ -67,7 +67,7 @@ function resetTables() {
 }
 
 // print query result as table
-function printTable($result) {
+function printTable($result, $tablename) {
     $numCols = oci_num_fields($result);
 
     echo "<div class='table-responsive'><table class='table table-hover text-left'>";
@@ -94,6 +94,7 @@ function printTable($result) {
     echo "<tbody>";
     echo "</table>";
     echo "</div>";
+    echo "<div class='table_chart' id='".$tablename."'></div>";
 }
 
 function addCountry() {
@@ -187,7 +188,8 @@ function selection() {
             <div class='card-header bg-success text-white'>Search result: athletes with at least $medalCount medals</div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "Country";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>
@@ -215,7 +217,8 @@ function projection() {
             <div class='card-header bg-success text-white'>Search result: athlete details </div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "no_table";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>
@@ -242,7 +245,8 @@ function joinQuery() {
             <div class='card-header bg-success text-white'>Search result: $name's residency </div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "Athlete";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>
@@ -267,7 +271,8 @@ function aggregation() {
             <div class='card-header bg-success text-white'>Search result: the maxiumum individual medal count from each team</div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "no_table";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>
@@ -296,7 +301,8 @@ function nested() {
             <div class='card-header bg-success text-white'>Search result: the average age of the youngest athletes from each team </div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "no_table";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>
@@ -329,7 +335,8 @@ function division() {
             <div class='card-header bg-success text-white'>Search result: athletes who participate in every competition </div>
             <div class='card-body'>
     ";
-    printTable($result);
+    $string_temp = "no_table";
+    printTable($result, $string_temp);
     echo "
             </div>
         </div>

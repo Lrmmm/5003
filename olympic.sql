@@ -35,6 +35,9 @@ values ('USA', 5);
 insert into country
 values ('Germany', 3);
 
+insert into country
+values ('Agenting', 8);
+
 create table team
 (
     teamname    char(50),
@@ -123,6 +126,12 @@ values ('Hockey', '2022-02-16 12:00:00', 'Arena 5');
 insert into competition
 values ('Skiing', '2022-02-18 18:30:00', 'Arena 3');
 
+insert into competition
+values ('Ski Mountaineering', '2022-02-19 08:30:00', 'Arena 2');
+
+insert into competition
+values ('Curling', '2022-02-19 14:00:00', 'Arena 3');
+
 create table volunteer
 (
     volunteerid      int,
@@ -144,6 +153,15 @@ create table mediastreamingplatform
 
 insert into mediastreamingplatform
 values ('BBC', 50000, 2000);
+
+insert into mediastreamingplatform
+values ('AFP', 10000, 2000);
+
+insert into mediastreamingplatform
+values ('CBC', 30000, 8000);
+
+insert into mediastreamingplatform
+values ('FOX', 15000, 10000);
 
 create table sponsor
 (
@@ -243,7 +261,17 @@ create table streamprice
 );
 
 insert into streamprice
-values ('Skating', 50000);
+values ('Skating', 500);
+
+insert into streamprice
+values ('Hockey', 400);
+
+insert into streamprice
+values ('Curling', 280);
+
+insert into streamprice
+values ('Ski Mountaineering', 350);
+
 
 create table competes
 (

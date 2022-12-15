@@ -37,10 +37,9 @@ echo "
             <!-- Required meta tags -->
             <meta charset='utf-8'>
             <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        
+            <script src='https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js'></script>
             <!-- Bootstrap CSS -->
             <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
-        
             <title>SDSC 5003 Project</title>
             <style>
                 * {
@@ -55,10 +54,15 @@ echo "
                 #content {
                     margin: 20px;
                 }
-                
+                .table_chart{
+                    width: 0 px;
+                    height: 0 px;
+                }
+
                 table {
                     font-size: 12px;
                 }
+            
             </style>
         </head>
 
@@ -359,7 +363,7 @@ if (connectToDB()) {
                 <div class='card-header bg-dark text-white'>$tableName</div>
                 <div class='card-body'>
         ";
-        printTable($result);
+        printTable($result, $tableName);
         echo "
                 </div>
             </div>
@@ -379,6 +383,75 @@ echo "
 
             <!-- Bootstrap JavsScript -->
             <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
+            <script type='text/javascript'>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart_Country = echarts.init(document.getElementById('Country'), null, {
+            height: 200,
+            width: 300
+        });
+        var myChart_Media = echarts.init(document.getElementById('Media Streaming Platform'), null, {
+            height: 200,
+            width: 300
+        });
+        var myChart_Price = echarts.init(document.getElementById('Stream Price'), null, {
+            height: 260,
+            width: 350
+        });
+ 
+        // 指定图表的配置项和数据
+        var option_Country = {
+                series : [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        data:[
+                            {value:12, name:'Canada'},
+                            {value:5, name:'USA'},
+                            {value:3, name:'Germany'},
+                            {value:8, name:'Agenting'},
+                        ],
+                        
+                    }
+                ]
+            };
+        
+            var option_Media = {
+                series : [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        data:[
+                            {value:50000, name:'BBC'},
+                            {value:10000, name:'AFP'},
+                            {value:30000, name:'CBC'},
+                            {value:15000, name:'FOX'},
+                        ],
+                        
+                    }
+                ]
+            };
+
+
+            option_Price = {
+                xAxis: {
+                  data: ['Skating', 'Hockey', 'Curling', 'Ski']
+                },
+                yAxis: {},
+                series: [
+                  {
+                    type: 'bar',
+                    data: [500, 400, 280, 350]
+                  }
+                ]
+              };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart_Country.setOption(option_Country);
+        myChart_Media.setOption(option_Media);
+        myChart_Price.setOption(option_Price);
+        </script>
         </body>
     </html>
 ";

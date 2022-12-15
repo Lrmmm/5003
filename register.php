@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>表单</title>
+		<title>Olympic Database Register</title>
 		<style>
 			.a{
 				display: flex;
